@@ -1,0 +1,18 @@
+@layer base {
+	button,
+	[type="button"],
+	[type="reset"],
+	[type="submit"],
+	input {
+		border-radius: 0.25rem;
+		padding-inline: 0.5rem;
+		padding-block: 0.25rem;
+		min-width: 5rem;
+	}
+	button,
+	[type="button"],
+	[type="reset"],
+	[type="submit"] {
+		background-color: var(--control-500);
+	}
+}

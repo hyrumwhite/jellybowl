@@ -1,3 +1,41 @@
+@import "./controls.css";
+@import "./div.css";
+@import "./flex-containers.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--surface-100: hsla(220deg, 10%, 90%);
+	--surface-200: hsla(220deg, 10%, 80%);
+	--surface-300: hsla(220deg, 10%, 70%);
+	--surface-400: hsla(220deg, 10%, 60%);
+	--surface-500: hsla(220deg, 10%, 50%);
+	--surface-600: hsla(220deg, 10%, 40%);
+	--surface-700: hsla(220deg, 10%, 30%);
+	--surface-800: hsla(220deg, 10%, 20%);
+	--surface-900: hsla(220deg, 10%, 10%);
+
+	--control-100: hsla(220deg, 60%, 90%);
+	--control-200: hsla(220deg, 60%, 80%);
+	--control-300: hsla(220deg, 60%, 70%);
+	--control-400: hsla(220deg, 60%, 60%);
+	--control-500: hsla(220deg, 60%, 50%);
+	--control-600: hsla(220deg, 60%, 40%);
+	--control-700: hsla(220deg, 60%, 30%);
+	--control-800: hsla(220deg, 60%, 20%);
+	--control-900: hsla(220deg, 60%, 10%);
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	color: var(--surface-100);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--surface-900);
+}
