@@ -2,6 +2,10 @@
 	flex-row {
 		display: flex;
 	}
+	flex-row[fill],
+	flex-column[fill] {
+		flex: 1 1 0px;
+	}
 	flex-row[inline="center"],
 	flex-column[block="center"] {
 		justify-content: center;

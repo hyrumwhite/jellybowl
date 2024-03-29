@@ -1,6 +1,9 @@
-@import "./controls.css";
-@import "./div.css";
-@import "./flex-containers.css";
+@import "./css/controls.css";
+@import "./css/div.css";
+@import "./css/nav.css";
+@import "./css/flex-containers.css";
+@import "./css/anchor.css";
+@import "./css/input.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,6 +17,7 @@
 	--surface-600: hsla(220deg, 10%, 40%);
 	--surface-700: hsla(220deg, 10%, 30%);
 	--surface-800: hsla(220deg, 10%, 20%);
+	--surface-850: hsla(220deg, 10%, 15%);
 	--surface-900: hsla(220deg, 10%, 10%);
 
 	--control-100: hsla(220deg, 60%, 90%);
@@ -24,6 +28,7 @@
 	--control-600: hsla(220deg, 60%, 40%);
 	--control-700: hsla(220deg, 60%, 30%);
 	--control-800: hsla(220deg, 60%, 20%);
+	--control-850: hsla(220deg, 60%, 15%);
 	--control-900: hsla(220deg, 60%, 10%);
 }
 

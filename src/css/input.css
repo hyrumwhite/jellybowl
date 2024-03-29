@@ -1,0 +1,6 @@
+@layer base {
+	input {
+		background: var(--surface-800);
+		padding: 0.5em;
+	}
+}

@@ -10,24 +10,11 @@
 
 	<body class="h-full w-full flex flex-col">
 		<nav class="flex justify-between">
-			Menu
-			<div>
-				<a>Movies</a>
-				<a>Music</a>
-			</div>
+			<flex-row fill inline="end" gap="3">
+				<a href="/movies">Movies</a>
+				<a href="/music">Music</a>
+			</flex-row>
 		</nav>
-		<div class="container">
-			<h1 class="text-red-800">Welcasdfome to Tauri!</h1>
-
-			<form class="row" id="greet-form">
-				<input id="greet-input" placeholder="Enter a name..." />
-				<button type="submit">Greet</button>
-			</form>
-			<flex-column gap="2">
-				<flex-row inline="center">test</flex-row>
-				<flex-row inline="end">test</flex-row>
-			</flex-column>
-			<p id="greet-msg"></p>
-		</div>
+		<flex-column gap="2" block="start" fill class="router-outlet"></flex-column>
 	</body>
 </html>

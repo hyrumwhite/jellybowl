@@ -13,6 +13,7 @@
 	[type="button"],
 	[type="reset"],
 	[type="submit"] {
-		background-color: var(--control-500);
+		background-color: var(--control-600);
+		font-weight: 500;
 	}
 }

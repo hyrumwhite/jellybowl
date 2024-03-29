@@ -1,0 +1,9 @@
+@layer base {
+	a {
+		font-weight: bold;
+		cursor: pointer;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+}
