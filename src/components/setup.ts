@@ -1,6 +1,7 @@
 import spicy from "@spicyjs/core";
 import { reactor } from "@spicyjs/reactor";
 import { Input } from "./shared/Input";
+import { Show } from "./shared/Show";
 
 const { form, "flex-row": FlexRow, button, span, a } = spicy;
 
@@ -26,21 +27,31 @@ export const setupView = () => {
 				label: "API Key",
 				placeholder: "8d561c9b1c8547d791675d4cf1309a4b",
 			}),
-			serverUrl(span(), (span) => {
-				if (serverUrl.value) {
-					let link = span.querySelector("a");
-					if (!link) {
-						link = a("Get an api key here");
-						span.replaceChildren(link);
-					}
-					link.href = `https://${serverUrl.value?.replace(
-						"https://",
-						""
-					)}/web/index.html#!/apikeys.html`;
-				} else {
-					span.innerHTML = "";
-				}
-			}),
+			Show(
+				{
+					when: () => !!serverUrl.value,
+				},
+				serverUrl(
+					a("Get an api key here"),
+					(anchor) =>
+						(anchor.href = `https://${serverUrl.value}/web/index.html#!/apikeys.html`)
+				)
+			),
+			// serverUrl(span(), (span) => {
+			// 	if (serverUrl.value) {
+			// 		let link = span.querySelector("a");
+			// 		if (!link) {
+			// 			link = a("Get an api key here");
+			// 			span.replaceChildren(link);
+			// 		}
+			// 		link.href = `https://${serverUrl.value?.replace(
+			// 			"https://",
+			// 			""
+			// 		)}/web/index.html#!/apikeys.html`;
+			// 	} else {
+			// 		span.innerHTML = "";
+			// 	}
+			// }),
 			button("Next", {
 				click() {},
 			})
