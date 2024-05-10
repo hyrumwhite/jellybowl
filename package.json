@@ -10,8 +10,8 @@
     "tauri": "tauri"
   },
   "dependencies": {
-    "@spicyjs/core": "^1.1.4",
-    "@spicyjs/reactor": "^1.0.3",
+    "@spicyjs/core": "^1.1.7",
+    "@spicyjs/reactor": "^1.0.9",
     "@spicyjs/router": "^1.0.2",
     "@tauri-apps/api": "^1"
   },

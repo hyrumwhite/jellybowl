@@ -2,30 +2,47 @@ import spicy from "@spicyjs/core";
 import { reactor } from "@spicyjs/reactor";
 import { Input } from "./shared/Input";
 import { Show } from "./shared/Show";
+import { go } from "@spicyjs/router";
+import { API_KEY, SERVER_URL } from "../constants/localstorage";
+import { routeCleanup } from "../utilities/route-cleanup";
+import { routeNames } from "../constants/routes";
 
 const { form, "flex-row": FlexRow, button, span, a } = spicy;
 
 export const setupView = () => {
-	const serverUrl = reactor(localStorage.getItem("server-url"));
-	console.log(serverUrl.value);
-	serverUrl(() => localStorage.setItem("server-url", serverUrl.value));
+	const serverUrl = reactor(localStorage.getItem(SERVER_URL) || "");
+	serverUrl(() => localStorage.setItem(SERVER_URL, serverUrl.value));
+
+	const apiKey = reactor(localStorage.getItem(API_KEY) || "");
+	apiKey(() => localStorage.setItem(API_KEY, apiKey.value));
+
+	routeCleanup(routeNames.setup, [serverUrl, apiKey]);
+
 	return FlexRow(
 		{ inline: "center" },
 		form(
-			{ class: "w-96 flex flex-col gap-3 bg-[--surface-850] p-6 rounded-md" },
+			{
+				class: "w-96 flex flex-col gap-3 bg-[--surface-850] p-6 rounded-md",
+				submit($event) {
+					$event.preventDefault();
+					if (serverUrl.value && apiKey.value) {
+						go({ path: "/music" });
+					}
+				},
+			},
 			Input({
 				id: "url-field",
 				label: "Server URL",
 				placeholder: "192.168.1.11:8096",
-				value: serverUrl.value,
-				onInput: ($event) => {
-					serverUrl.value = ($event.target as HTMLInputElement).value;
-				},
+				model: serverUrl,
+				required: true,
 			}),
 			Input({
 				id: "api-key",
 				label: "API Key",
 				placeholder: "8d561c9b1c8547d791675d4cf1309a4b",
+				model: apiKey,
+				required: true,
 			}),
 			Show(
 				{
@@ -37,24 +54,7 @@ export const setupView = () => {
 						(anchor.href = `https://${serverUrl.value}/web/index.html#!/apikeys.html`)
 				)
 			),
-			// serverUrl(span(), (span) => {
-			// 	if (serverUrl.value) {
-			// 		let link = span.querySelector("a");
-			// 		if (!link) {
-			// 			link = a("Get an api key here");
-			// 			span.replaceChildren(link);
-			// 		}
-			// 		link.href = `https://${serverUrl.value?.replace(
-			// 			"https://",
-			// 			""
-			// 		)}/web/index.html#!/apikeys.html`;
-			// 	} else {
-			// 		span.innerHTML = "";
-			// 	}
-			// }),
-			button("Next", {
-				click() {},
-			})
+			button("Next")
 		)
 	);
 };
