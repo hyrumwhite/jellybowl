@@ -15,7 +15,7 @@ export const APIInfo = {
 };
 export const getStreamURL = (id: string) => {
 	const { baseURL, token } = APIInfo;
-	let url = new URL(`Audio/${id}/stream?api_key=${token}`, baseURL);
+	let url = new URL(`Audio/${id}/universal?api_key=${token}`, baseURL);
 	return url.toString();
 };
 window.addEventListener("storage", ($event) => {

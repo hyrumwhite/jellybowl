@@ -38,10 +38,18 @@ export const setupView = () => {
 				required: true,
 			}),
 			Input({
-				id: "api-key",
-				label: "API Key",
-				placeholder: "8d561c9b1c8547d791675d4cf1309a4b",
-				model: apiKey,
+				id: "username",
+				name: "Username",
+				label: "Username",
+				placeholder: "John",
+				required: true,
+			}),
+			Input({
+				id: "password",
+				name: "Pw",
+				type: "password",
+				label: "Username",
+				placeholder: "******",
 				required: true,
 			}),
 			Show(
