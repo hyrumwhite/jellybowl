@@ -16,6 +16,7 @@ export const Input = ({
 	id,
 	placeholder = "",
 	label,
+	type = "text",
 	model,
 	value = "",
 	onInput,
@@ -29,6 +30,7 @@ export const Input = ({
 			class: "border border-[--surface-700] border-solid",
 			id,
 			placeholder,
+			type,
 			value: model?.value || value || "",
 			required,
 			input: ($event) => {

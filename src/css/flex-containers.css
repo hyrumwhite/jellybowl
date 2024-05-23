@@ -1,10 +1,15 @@
 @layer base {
 	flex-row {
 		display: flex;
+		min-height: 0px;
 	}
 	flex-row[fill],
 	flex-column[fill] {
 		flex: 1 1 0px;
+	}
+	flex-row[scroll],
+	flex-column[scroll] {
+		overflow: auto;
 	}
 	flex-row[inline="center"],
 	flex-column[block="center"] {
@@ -49,6 +54,7 @@
 	flex-column {
 		display: flex;
 		flex-direction: column;
+		min-height: 0px;
 	}
 	flex-row[gap="1"],
 	flex-column[gap="1"] {

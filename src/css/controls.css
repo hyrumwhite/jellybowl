@@ -16,4 +16,7 @@
 		background-color: var(--control-600);
 		font-weight: 500;
 	}
+	button:disabled {
+		opacity: 0.5;
+	}
 }

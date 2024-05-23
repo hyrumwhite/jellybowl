@@ -15,7 +15,19 @@ export const APIInfo = {
 };
 export const getStreamURL = (id: string) => {
 	const { baseURL, token } = APIInfo;
-	let url = new URL(`Audio/${id}/universal?api_key=${token}`, baseURL);
+	const urlOptions = new URLSearchParams({
+		api_key: token,
+		MaxStreamingBitrate: 117482518,
+		Container:
+			"opus,webm|opus,mp3,aac,m4a|aac,m4b|aac,flac,webma,webm|webma,wav,ogg",
+		TranscodingContainer: "ts",
+		TranscodingProtocol: "hls",
+		AudioCodec: "aac",
+		StartTimeTicks: "0",
+		EnableRedirection: "true",
+		EnableRemoteMedia: "false",
+	});
+	let url = new URL(`Audio/${id}/universal?${urlOptions}`, baseURL);
 	return url.toString();
 };
 window.addEventListener("storage", ($event) => {
